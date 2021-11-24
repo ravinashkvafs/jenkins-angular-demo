@@ -31,6 +31,8 @@ jobs:
     name: Deployment
     runs-on: macos-10.15
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
       - name: "heroku config name"
         run: git config user.name "Avinash Sharma"
@@ -44,7 +46,7 @@ jobs:
           heroku_app_name: "avi-action-trigger" #Must be unique in Heroku
           heroku_email: "ravinashkvafs@gmail.com"
           procfile: "web: npm start"
-          
+
       - name: "Login to heroku registry"
         run: heroku container:login
 
