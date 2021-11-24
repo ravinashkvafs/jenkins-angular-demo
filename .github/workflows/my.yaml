@@ -1,0 +1,22 @@
+name: github-angular-actions
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  build:
+    name: Lint and Build
+    runs-on: macos-latest
+    steps:
+      - name: Use Node 16.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+      - name: Install dependencies
+        run: npm i
+      - name: Linting
+        run: npm run lint
+      - name: Build
+        run: npm run build
