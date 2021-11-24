@@ -55,6 +55,7 @@ jobs:
           heroku_app_name: "avi-action-trigger" #Must be unique in Heroku
           heroku_email: "ravinashkvafs@gmail.com"
           healthcheck: "https://avi-action-trigger.herokuapp.com/health"
+          justlogin: true
           checkstring: "ok"
 
       # - name: "Login to heroku registry"
