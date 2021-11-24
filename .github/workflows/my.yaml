@@ -34,6 +34,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Install Heroku Cli
+        run: curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+
       - name: "heroku config name"
         run: git config user.name "Avinash Sharma"
 
@@ -46,13 +49,13 @@ jobs:
           heroku_app_name: "avi-action-trigger" #Must be unique in Heroku
           heroku_email: "ravinashkvafs@gmail.com"
 
-      - name: "Login to heroku registry"
-        run: heroku container:login
+      # - name: "Login to heroku registry"
+      #   run: heroku container:login
 
       - name: "Build and push to heroku registry"
-        run: heroku container:push web --app email-service-web
+        run: heroku container:push web --app avi-action-trigger"
 
       - name: "Releases the container"
-        run: heroku container:release web --app email-service-web
+        run: heroku container:release web --app avi-action-trigger"
 
   
