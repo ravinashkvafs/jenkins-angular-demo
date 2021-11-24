@@ -12,12 +12,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "avi-action-trigger" #Must be unique in Heroku
-          heroku_email: "ravinashkvafs@gmail.com"
-          healthcheck: "https://avi-action-trigger.herokuapp.com/health"
       - name: Use Node 16.x
         uses: actions/setup-node@v1
         with:
@@ -32,5 +26,11 @@ jobs:
         run: npm run lint
       - name: Build
         run: npm run build
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "avi-action-trigger" #Must be unique in Heroku
+          heroku_email: "ravinashkvafs@gmail.com"
+          healthcheck: "https://avi-action-trigger.herokuapp.com/health"
 
   
