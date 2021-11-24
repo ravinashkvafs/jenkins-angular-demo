@@ -54,6 +54,7 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "avi-action-trigger" #Must be unique in Heroku
           heroku_email: "ravinashkvafs@gmail.com"
+          procfile: "web: npm start"
           healthcheck: "https://avi-action-trigger.herokuapp.com/health"
           justlogin: true
           checkstring: "ok"
