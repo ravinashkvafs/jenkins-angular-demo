@@ -31,17 +31,20 @@ jobs:
     name: Deployment
     runs-on: macos-10.15
     steps:
+
+      - name: "heroku config name"
+        run: git config user.name "Avinash Sharma"
+
+      - name: "heroku config email"
+        run: git config user.email "ravinashkvafs@gmail.com"
+
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: "ec9ef8c5-6b51-4420-bfbc-8a938408cea2"
           heroku_app_name: "avi-action-trigger" #Must be unique in Heroku
           heroku_email: "ravinashkvafs@gmail.com"
           procfile: "web: npm start"
-
-      - name: "heroku config name"
-        run: git config user.name "Avinash Sharma"
-      - name: "heroku config email"
-        run: git config user.email "ravinashkvafs@gmail.com"
+          
       - name: "Login to heroku registry"
         run: heroku container:login
 
